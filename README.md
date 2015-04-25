@@ -6,22 +6,22 @@ A cheat sheet for phpspec
 * Run the tests: `bin/phpspec run`
 # Matchers
 
-## Identity Matcher (===)
+## Identity (===)
 
     $this->getMethodName()->shouldBe('value');
     $this->getMethodName()->shouldBeEqualTo('value');
     $this->getMethodName()->shouldReturn('value');
     $this->getMethodName()->shouldEqual('value');
-## Comparison Matcher (==)
+## Comparison (==)
 
     $this->getMethodName()->shouldBeLike('value');
-## Type Matcher (instanceof)
+## Type (instanceof)
 
     $this->getMethodName()->shouldHaveType('\Full\Class\Name');
     $this->getMethodName()->shouldReturnAnInstanceOf('\Full\Class\Name');
     $this->getMethodName()->shouldBeAnInstanceOf('\Full\Class\Name');
     $this->getMethodName()->shouldImplement('\Full\Interface\Name');
-## ObjectState Matcher
+## ObjectState
 Method named `is*` or `has*` should return boolean.
 
     $this->shouldBeActive(); // isActive() method should return true
