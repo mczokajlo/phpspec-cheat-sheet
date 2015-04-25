@@ -6,22 +6,22 @@ A cheat sheet for phpspec
 * Run the tests: `bin/phpspec run`
 # Matchers
 
-## Same (===)
+## Identity Matcher (===)
 
-    $this->getMethodName()->shouldReturn('value');
     $this->getMethodName()->shouldBe('value');
-    $this->getMethodName()->shouldEqual('value');
     $this->getMethodName()->shouldBeEqualTo('value');
-## Equals (==)
+    $this->getMethodName()->shouldReturn('value');
+    $this->getMethodName()->shouldEqual('value');
+## Comparison Matcher (==)
 
     $this->getMethodName()->shouldBeLike('value');
-## Object type (instanceof)
+## Type Matcher (instanceof)
 
     $this->getMethodName()->shouldHaveType('\Full\Class\Name');
     $this->getMethodName()->shouldReturnAnInstanceOf('\Full\Class\Name');
     $this->getMethodName()->shouldBeAnInstanceOf('\Full\Class\Name');
     $this->getMethodName()->shouldImplement('\Full\Interface\Name');
-## Bool
+## ObjectState Matcher
 Method named `is*` or `has*` should return boolean.
 
     $this->shouldBeActive(); // isActive() method should return true
@@ -48,7 +48,26 @@ Method should return a value of primitive types.
     $this->getInteger()->shouldBeInteger();
     $this->getDecimal()->shouldBeDecimal();
     $this->getCollection()->shouldBeArray();
-## Custom matcher
+## ArrayContain
+Method matches the value by identity (===)
+
+    $this->getMethodName()->shouldContain('value');
+## ArrayKeyWithValue
+
+    $this->getMethodName()->shouldHaveKeyWithValue('key', 'value');
+## ArrayKey
+
+    $this->getMethodName()->shouldHaveKey('key');
+## StringStart
+
+    $this->getMethodName()->shouldStartWith('value');
+## StringEnd
+
+    $this->getMethodName()->shouldEndWith('value');
+## StringRegex
+
+    $this->getMethodName()->shouldMatch('/value/i');
+## Inline matcher
 Method should return a value that match the custom matcher.
 
     function it_should_have_some_specific_options_by_default()
